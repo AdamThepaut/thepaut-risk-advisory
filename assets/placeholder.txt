@@ -1,0 +1,1 @@
+This file simply ensures the assets folder exists.
