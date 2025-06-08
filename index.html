@@ -59,45 +59,73 @@
       background-color: #16202f;
     }
 
-    /* ===== Navigation Bar ===== */
-    nav {
+   /* ===== Navigation Bar ===== */
+nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  padding: 0px 25px;      /* add vertical padding instead of fixed height */
   background-color: rgba(255,255,255,0.95);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0 25px;                /* uniquement horizontal */
+  display: flex;                  /* flex pour alignements */
+  align-items: center;            /* centre vertical des items */
   z-index: 100;
 }
 
+/* Logo */
 nav img.logo {
-  height: 100px;            /* increase logo size */
+  height: 100px;                  /* votre hauteur souhaitée */
   width: auto;
+  display: block;                 /* supprime les gaps inline */
 }
 
-/* adjust page top offset to match the new nav height */
+/* Conteneur interne (si vous l'utilisez) */
+nav .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  gap: 30px;                      /* espace entre les liens */
+  margin-left: auto;              /* pousse le menu à droite */
+  font-weight: 500;               /* un peu plus léger que bold */
+  text-transform: uppercase;      /* style “Deloitte” */
+  font-size: 0.9rem;
+}
+
+/* Liens avec effet souligné au survol */
+.nav-menu a {
+  position: relative;
+  padding: 8px 0;                 /* pour que l’underline soit bien placé */
+  color: inherit;
+  transition: color 0.2s;
+}
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;                   /* juste en dessous du texte */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor; /* même couleur que le texte */
+  transition: width 0.3s;
+}
+.nav-menu a:hover {
+  color: #1a2439;                 /* conservez votre couleur hover ici */
+}
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Décalage du contenu pour éviter qu’il soit sous la nav */
 body {
-  padding-top: 100; /* logo height + top+bottom padding */
+  padding-top: 100px;             /* = hauteur du logo */
 }
-    nav .nav-container {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-    .nav-menu li {
-      list-style: none;
-    }
-
-    /* Offset fix for fixed nav */
-    body {
-      padding-top: 60px;
-    }
 
     /* ===== Hero Section ===== */
     #hero {
