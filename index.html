@@ -64,11 +64,8 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   background-color: rgba(255,255,255,0.95);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;                  /* flex pour alignements */
-  align-items: right;            /* centre vertical des items */
   z-index: 100;
 }
 nav .nav-container {
@@ -76,7 +73,9 @@ nav .nav-container {
   align-items: center;           /* vertical centering */
   justify-content: space-between;/* logo left, menu right */
   height: 100px;                 /* same as your logo height */
-  padding: 0 25px;               /* horizontal padding */
+  padding: 0 25px; /* horizontal padding */
+  width: 100%;
+
 }
 /* Logo */
 nav img.logo {
