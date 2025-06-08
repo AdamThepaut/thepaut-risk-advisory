@@ -2,190 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Thepaut Risk Advisory</title>
-  <!-- SEO Meta -->
-  <meta name="description" content="Thepaut Risk Advisory — Political, geopolitical & economic risk intelligence.">
-  <meta name="keywords" content="risk advisory, political risk, geopolitical risk, economic forecasting">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-
+  <title>Simple Navbar Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* ===== Base Reset & Typography ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding-top: 200px; /* espace sous la nav */
+    }
 
-    /* ===== Navbar (Deloitte-style minimal) ===== */
+    /* ===== Navbar ===== */
     nav {
       position: fixed;
-      top: 0; left: 0; width: 100%;
-      height: 200px;                     /* matches logo height */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;           /* même hauteur que le logo */
       background: #ffffff;
       display: flex;
-      align-items: flex-start;           /* pin logo to top */
-      padding: 0 40px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      z-index: 1000;
+      align-items: flex-start; /* colle le logo en haut */
+      padding: 0 20px;         /* espace gauche/droite */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
     }
-    nav .logo-wrap {
-      line-height: 0;
-      margin-top: 0;                     /* no extra gap */
-    }
-    nav .logo-wrap img {
-      height: 200px;                     /* full fill of nav */
+    nav img {
+      height: 200px;           /* logo remplit toute la nav */
       width: auto;
-      display: block;
+      display: block;          /* supprime les petits gaps inline */
     }
-    nav .menu {
-      margin-left: auto;
+    nav ul {
       display: flex;
-      align-items: center;               /* vertically center text */
-      gap: 40px;
-      font-weight: 500;
-      font-size: 1rem;
-      text-transform: uppercase;
+      list-style: none;
+      margin-left: auto;       /* pousse le menu à droite */
+      align-items: center;     /* centre verticalement les liens */
+      height: 100%;
     }
-    nav .menu a {
-      position: relative;
-      padding: 8px 0;
-      color: #1a2439;
-      transition: color 0.2s;
+    nav ul li + li {
+      margin-left: 30px;       /* espacement entre liens */
     }
-    nav .menu a:hover {
-      color: #007a33;                    /* Deloitte green accent */
-    }
-    nav .menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: #007a33;
-      transition: width 0.3s;
-    }
-    nav .menu a:hover::after {
-      width: 100%;
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      display: flex;
+      align-items: center;     /* verticalement centré */
+      height: 100%;
+      padding: 0 5px;
     }
 
-    /* push page content below fixed nav */
-    body { padding-top: 200px; }
-
-    /* ===== Hero ===== */
-    #hero {
-      position: relative;
-      height: 70vh;
-      min-height: 400px;
-      background: url('assets/hero.jpg') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: #fff;
-    }
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: rgba(0,0,0,0.5);
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-    }
-    .hero-content h1 {
-      font-size: 3rem; margin-bottom: 0.5em;
-      font-weight: 700;
-    }
-    .hero-content p {
-      font-size: 1.25rem; margin-bottom: 1.5em;
-      max-width: 600px; line-height: 1.4;
-    }
-    .hero-content .btn {
-      background: #007a33; color: #fff;
-      padding: 12px 28px; border-radius: 4px;
-      font-weight: 600;
-    }
-    .hero-content .btn:hover {
-      background: #005f27;
-    }
-
-    /* ===== Sections ===== */
+    /* ===== Contenu exemple ===== */
     section {
-      padding: 80px 0;
+      padding: 40px 20px;
     }
-    h2 {
-      font-size: 2rem; color: #1a2439;
-      margin-bottom: 0.5em; font-weight: 600;
+    h1 {
+      margin-bottom: 20px;
     }
     p {
-      margin-bottom: 1em; line-height: 1.6;
+      line-height: 1.6;
     }
-
-    /* ===== Footer ===== */
-    footer {
-      background: #f5f5f5; text-align: center;
-      padding: 40px 0; font-size: 0.9rem; color: #666;
-    }
-    footer a { color: #007a33; }
   </style>
 </head>
 <body>
 
   <!-- ===== Navbar ===== -->
   <nav>
-    <div class="logo-wrap">
-      <a href="#hero">
-        <img src="assets/favicon.png" alt="Thepaut Risk Advisory">
-      </a>
-    </div>
-    <div class="menu">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#TheNexus">Insights</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <a href="#home">
+      <img src="assets/logo.png" alt="Thepaut Risk Advisory Logo">
+    </a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- ===== Hero ===== -->
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Thepaut Risk Advisory</h1>
-      <p>Political, geopolitical & economic risk intelligence tailored to your objectives.</p>
-      <a href="#contact" class="btn">Book a Consultation</a>
-    </div>
+  <!-- ===== Page Content ===== -->
+  <section id="home">
+    <h1>Welcome to Thepaut Risk Advisory</h1>
+    <p>This is your landing section. The navbar above is fixed, 200px tall, and your logo fills it completely with no extra space above or below.</p>
   </section>
 
-  <!-- ===== About ===== -->
-  <section id="about" class="container">
-    <h2>About Us</h2>
-    <p>Hi, I’m <strong>Adam Thepaut</strong>, founder of Thepaut Risk Advisory. I help clients navigate election outcomes, cross-border tensions, and macroeconomic shifts with precision.</p>
-    <p>Though early in my career, I’ve already made accurate forecasts—like predicting a Trump landslide in August—and hold a BA in International Studies (UdeM) and an MA candidate at HEC Montréal.</p>
+  <section id="about">
+    <h1>About Us</h1>
+    <p>Hi, I’m <strong>Adam Thepaut</strong>, founder of Thepaut Risk Advisory. I specialize in political risk analysis.</p>
   </section>
 
-  <!-- ===== Services ===== -->
-  <section id="services" class="container">
-    <h2>Services</h2>
-    <ul>
-      <li>Political & Geopolitical Risk Analysis</li>
-      <li>Scenario Planning & Mitigation</li>
-      <li>Economic Impact Forecasting</li>
-      <li>Strategic Stakeholder Presence</li>
-    </ul>
+  <section id="services">
+    <h1>Services</h1>
+    <p>Our offerings include risk analysis, scenario planning, economic forecasting, and strategic presence.</p>
   </section>
 
-  <!-- ===== Insights (The Nexus) ===== -->
-  <section id="TheNexus" class="container">
-    <h2>The Nexus</h2>
-    <p>Our monthly deep-dive series on energy realignments, election risks, and global policy shifts.</p>
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>Book a consultation via our <a href="https://calendly.com/YOUR_CALENDLY_USERNAME/political-risk-consultation" target="_blank">Calendly page</a>.</p>
   </section>
-
-  <!-- ===== Contact ===== -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>Schedule a consultation via <a href="https://calendly.com/YOUR_CALENDLY_USERNAME/political-risk-consultation" target="_blank">Calendly</a>.</p>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>© 2025 Thepaut Risk Advisory • Designed by Adam Thepaut</p>
-    <p><a href="mailto:adam@thepautriskadvisory.com">adam@thepautriskadvisory.com</a></p>
-  </footer>
 
 </body>
 </html>
+
