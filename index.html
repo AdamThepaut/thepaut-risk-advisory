@@ -258,56 +258,49 @@ body {
   <!-- ===== Insights: The Nexus ===== -->
 <section id="insights" class="container">
   <h2>The Nexus</h2>
-  <div id="blog-posts">
-    <p>Loading latest posts…</p>
-  </div>
+  <div id="blog-posts"><p>Loading latest posts…</p></div>
 </section>
 
 <script>
-(function() {
-  const blogId = '6706901312304478432'; 
-  const maxPosts = 3; // how many to show
-  const feedUrl =
-    `https://www.blogger.com/feeds/${blogId}/posts/default?alt=json&orderby=published&max-results=${maxPosts}`;
-
-  fetch(feedUrl)
-    .then(res => res.json())
-    .then(data => {
-      const posts = data.feed.entry || [];
-      const container = document.getElementById('blog-posts');
-      container.innerHTML = ''; // clear “Loading” text
-
-      if (!posts.length) {
-        container.innerHTML = '<p>No posts found.</p>';
-        return;
-      }
-
-      posts.forEach(entry => {
-        const title = entry.title.$t;
-        const url = entry.link.find(l => l.rel === 'alternate').href;
-        // strip HTML tags from content snippet:
-        const raw = (entry.content || entry.summary).$t;
-        const snippet = raw.replace(/<[^>]+>/g, '').slice(0, 200) + '…';
-
-        const postEl = document.createElement('article');
-        postEl.style.marginBottom = '24px';
-        postEl.innerHTML = `
-          <h3 style="margin-bottom: 0.25em;">
-            <a href="${url}" target="_blank">${title}</a>
-          </h3>
-          <p style="margin: 0;">${snippet}</p>
-        `;
-        container.appendChild(postEl);
-      });
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById('blog-posts').innerHTML =
-        '<p>Error loading posts.</p>';
+  // 1) JSONP callback that renders your posts
+  function displayPosts(data) {
+    const container = document.getElementById('blog-posts');
+    container.innerHTML = '';             // clear "Loading…"
+    const entries = data.feed.entry || [];
+    if (!entries.length) {
+      container.innerHTML = '<p>No posts found.</p>';
+      return;
+    }
+    entries.forEach(e => {
+      // title & link
+      const title = e.title.$t;
+      const url   = e.link.find(l => l.rel==='alternate').href;
+      // snippet
+      const raw   = (e.content||e.summary).$t;
+      const snippet = raw.replace(/<[^>]+>/g,'').slice(0,200)+'…';
+      // build and append
+      const art = document.createElement('article');
+      art.style.marginBottom = '24px';
+      art.innerHTML = `
+        <h3 style="margin-bottom:0.25em">
+          <a href="${url}" target="_blank">${title}</a>
+        </h3>
+        <p style="margin:0">${snippet}</p>
+      `;
+      container.appendChild(art);
     });
-})();
-</script>
+  }
 
+  // 2) Inject the JSONP feed (max-results=3)
+  (function() {
+    const blogId = '6706901312304478432'; 
+    const script = document.createElement('script');
+    script.src = 
+      `https://www.blogger.com/feeds/${blogId}/posts/default` +
+      `?alt=json-in-script&callback=displayPosts&max-results=3`;
+    document.body.appendChild(script);
+  })();
+</script>
 
   <!-- ===== Contact Section ===== -->
   <section id="contact" class="container">
