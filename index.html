@@ -303,19 +303,29 @@ body {
 </script>
 
   <!-- ===== Contact Section ===== -->
-  <section id="contact" class="container">
-    <h2>Contact / Book a Consultation</h2>
-    <div style="margin-top: 20px; margin-bottom: 40px;">
-      <div class="calendly-inline-widget" 
-           data-url="https://calendly.com/YOUR_CALENDLY_USERNAME/political-risk-consultation" 
-           style="min-width:320px;height:580px;"></div>
-      <script type="text/javascript" 
-              src="https://assets.calendly.com/assets/external/widget.js" async>
-      </script>
+<!-- ===== Contact / Book a Consultation ===== -->
+<section id="contact" class="container">
+  <h2>Contact / Book a Consultation</h2>
+
+  <!-- 1) Inline-embed container -->
+  <div 
+    class="calendly-inline-widget" 
+    data-url="https://calendly.com/thepautriskadvisory/political-risk-consultation" 
+    style="width:100%; height:600px; margin-top:20px;"
+  ></div>
+
+  <!-- 2) Calendly widget script -->
+  <script 
+    type="text/javascript" 
+    src="https://assets.calendly.com/assets/external/widget.js" 
+    async
+  ></script>
+
+</section>
     </div>
     <div class="newsletter">
       <h3>Subscribe to “Monthly Insights”</h3>
-      <form action="YOUR_MAILCHIMP_URL" method="post" target="_blank" novalidate>
+      <form action="https://gmail.us21.list-manage.com/subscribe/post?u=97c4d1c650c6954f7bf1b6cff&amp;id=e9c6ec6050&amp;f_id=004042e6f0" method="post" target="_blank" novalidate>
         <input type="email" name="EMAIL" placeholder="Your email address" required
                style="padding: 10px; width: 250px; border-radius: 4px; border: 1px solid #ccc;">
         <button type="submit" class="btn" style="margin-left: 10px;">Subscribe</button>
