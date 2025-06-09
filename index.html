@@ -255,18 +255,59 @@ body {
     </div>
   </section>
   
-  <!-- ===== The Nexus Section ===== -->
-  <section id="The Nexus" class="container">
-    <div class="text-column">
-      <h2>The Nexus</h2>
-      <p>Welcome to “The Nexus,” our corner for geopolitical and economic analysis. We publish 1–2 deep dives each month covering everything from shifting energy alliances to election risk dynamics.</p>
-      <article style="margin-top: 20px;">
-        <h3>Geo-Energy Shifts in 2025</h3>
-        <p><em>April 15, 2025</em> – How geopolitical alliances and policy changes are reshaping global energy markets. <a href="#" target="_blank">Read more →</a></p>
-      </article>
-      <!-- Add more <article> blocks as new Nexus posts go live -->
-    </div>
-  </section>
+  <!-- ===== Insights: The Nexus ===== -->
+<section id="insights" class="container">
+  <h2>The Nexus</h2>
+  <div id="blog-posts">
+    <p>Loading latest posts…</p>
+  </div>
+</section>
+
+<script>
+(function() {
+  const blogId = '6706901312304478432'; 
+  const maxPosts = 3; // how many to show
+  const feedUrl =
+    `https://www.blogger.com/feeds/${blogId}/posts/default?alt=json&orderby=published&max-results=${maxPosts}`;
+
+  fetch(feedUrl)
+    .then(res => res.json())
+    .then(data => {
+      const posts = data.feed.entry || [];
+      const container = document.getElementById('blog-posts');
+      container.innerHTML = ''; // clear “Loading” text
+
+      if (!posts.length) {
+        container.innerHTML = '<p>No posts found.</p>';
+        return;
+      }
+
+      posts.forEach(entry => {
+        const title = entry.title.$t;
+        const url = entry.link.find(l => l.rel === 'alternate').href;
+        // strip HTML tags from content snippet:
+        const raw = (entry.content || entry.summary).$t;
+        const snippet = raw.replace(/<[^>]+>/g, '').slice(0, 200) + '…';
+
+        const postEl = document.createElement('article');
+        postEl.style.marginBottom = '24px';
+        postEl.innerHTML = `
+          <h3 style="margin-bottom: 0.25em;">
+            <a href="${url}" target="_blank">${title}</a>
+          </h3>
+          <p style="margin: 0;">${snippet}</p>
+        `;
+        container.appendChild(postEl);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('blog-posts').innerHTML =
+        '<p>Error loading posts.</p>';
+    });
+})();
+</script>
+
 
   <!-- ===== Contact Section ===== -->
   <section id="contact" class="container">
