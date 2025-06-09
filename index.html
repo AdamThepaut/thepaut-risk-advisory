@@ -60,67 +60,66 @@
     }
 
    /* ===== Navigation Bar ===== */
+ /* ===== Navigation Bar ===== */
 nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.95);
+  width: 100%;
+  height: 80px;                    /* hauteur totale de la navbar */
+  background: rgba(255,255,255,0.95);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 100;
+  z-index: 1000;
 }
+
+/* Conteneur flex unique */
 nav .nav-container {
   display: flex;
-  align-items: center;           /* vertical centering */
-  justify-content: space-between;/* logo left, menu right */
-  height: 100px;                 /* same as your logo height */
-  padding: 0 25px; /* horizontal padding */
-  width: 100%;
-
+  justify-content: space-between;  /* logo à gauche / menu à droite */
+  align-items: center;             /* centré verticalement */
+  height: 100%;
+  padding: 0 25px;                 /* marge gauche/droite */
 }
-/* Logo */
+
+/* Logo plus petit */
 nav img.logo {
-  height: 100px;                  /* votre hauteur souhaitée */
+  height: 60px;                    /* taille réduite du logo */
   width: auto;
-  display: block;                 /* supprime les gaps inline */
+  display: block;
 }
 
 /* Menu */
 .nav-menu {
   display: flex;
-  gap: 30px;                      /* espace entre les liens */
-  margin-left: auto;              /* pousse le menu à droite */
-  font-weight: 500;               /* un peu plus léger que bold */
-  text-transform: uppercase;      /* style “Deloitte” */
+  gap: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
   font-size: 0.9rem;
 }
-
-/* Liens avec effet souligné au survol */
+.nav-menu li { list-style: none; }
 .nav-menu a {
   position: relative;
-  padding: 8px 0;                 /* pour que l’underline soit bien placé */
-  color: inherit;
+  padding: 4px 0;
   transition: color 0.2s;
 }
 .nav-menu a::after {
   content: '';
   position: absolute;
-  bottom: -2px;                   /* juste en dessous du texte */
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: currentColor; /* même couleur que le texte */
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: currentColor;
   transition: width 0.3s;
 }
 .nav-menu a:hover {
-  color: #1a2439;                 /* conservez votre couleur hover ici */
+  color: #1a2439;
 }
 .nav-menu a:hover::after {
   width: 100%;
 }
 
-/* Décalage du contenu pour éviter qu’il soit sous la nav */
+/* Décalage du contenu sous la navbar */
 body {
-  padding-top: 100px;             /* = hauteur du logo */
+  padding-top: 80px;               /* = height de nav */
 }
 
     /* ===== Hero Section ===== */
