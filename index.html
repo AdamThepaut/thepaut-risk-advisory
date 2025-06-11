@@ -196,6 +196,19 @@ body {
       font-size: 0.9rem;
       color: #555;
     }
+    /* Left-align “Insights (The Nexus)” content */
+#insights .text-column {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Right-align the “Subscribe to Monthly Insights” form */
+.newsletter {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 400px;
+  margin-left: auto;
+}
   </style>
   
 </head>
@@ -339,10 +352,10 @@ body {
     async
   ></script>
   
-  <!-- ===== Insights: The Nexus ===== -->
+  <!-- ===== Insights ===== -->
 <section id="The Nexus" class="container">
   <h2>The Nexux Blog: Latest Insights</h2>
-  <div id="blog-posts"><p>Loading latest posts…</p></div>
+  <div id="blog-posts"><p>Loading latest posts…</p></div> 
 </section>
 
 <script>
@@ -389,7 +402,7 @@ body {
 </section>
     </div>
     <div class="newsletter">
-      <h3>Subscribe to “Monthly Insights”</h3>
+      <h3>Subscribe to “The Nexus Blog”</h3>
       <form action="https://gmail.us21.list-manage.com/subscribe/post?u=97c4d1c650c6954f7bf1b6cff&amp;id=e9c6ec6050&amp;f_id=004042e6f0" method="post" target="_blank" novalidate>
         <input type="email" name="EMAIL" placeholder="Your email address" required
                style="padding: 8px; width: 200px; border-radius: 2px; border: 1px solid #ccc;">
