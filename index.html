@@ -125,7 +125,12 @@ body {
 }
 
     /* ===== Hero Background & Overlay ===== */
-#hero {
+#hero .hero-content,
+#hero .hero-content h1,
+#hero .hero-content p {
+  color: #ffffff !important;
+}
+  #hero {
   position: relative;
   background: url('assets/hero-bg.jpg') center/cover no-repeat;
   height: 800px;          /* match your image height */
@@ -174,6 +179,18 @@ body {
   max-width: 800px;       /* keeps text from stretching too wide */
   padding: 0 20px;
 
+.contact button {
+  background-color: #ffffff;      /* white background */
+  color: #1A2439;                 /* navy text */
+  border: 2px solid #1A2439;      /* navy border */
+  padding: 10px 20px;
+}
+
+/* Ensure hover state is inverted too */
+.contact button:hover {
+  background-color: #1A2439;      /* navy background on hover */
+  color: #ffffff;                 /* white text */
+}
     /* ===== Section Header Graphics ===== */
     .section-header {
       width: 200px;
@@ -249,7 +266,7 @@ body {
     <div class="hero-content">
       <h2> Transform political uncertainty into strategic advantages<h2>
       <p>We capture signals, not the noise, to create scenarios, forecast economic impacts, and elaborate mitigation strategies.</p>
-<a href="#contact" class="btn">Fill the form</a>
+<a href="#contact" class="btn">Book first for free</a>
     </div>
   </section>
   
