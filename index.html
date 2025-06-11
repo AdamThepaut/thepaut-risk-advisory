@@ -166,12 +166,24 @@ body {
       margin: 0 auto 1.5em;
     }
 
+    #hero .hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  max-width: 800px;       /* keeps text from stretching too wide */
+  padding: 0 20px;
+
+  /* Left-align everything */
+  text-align: left;
+  align-items: flex-start; /* if you ever switch to flex layout */
     /* ===== Section Header Graphics ===== */
     .section-header {
       width: 200px;
       margin-bottom: 1em;
+       justify-content: flex-start;
+  padding-left: 60px;
     }
-
+      
     /* ===== About / Services / Insights / Contact ===== */
     #about .text-column,
     #services .text-column,
@@ -237,8 +249,8 @@ body {
   <section id="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Thepaut Risk Advisory</h1>
-      <p>Political, geopolitical & economic risk intelligence for decision-makers.</p>
+      <p>Reading the signals of political and geopolitical nature and anticipate the economic implications.
+Understand the noise, anticipate mitigation strategies and transform uncertainty into strategic advantages.</p>
 <a href="#contact" class="btn">Fill the form</a>
     </div>
   </section>
