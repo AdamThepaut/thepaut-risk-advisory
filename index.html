@@ -197,17 +197,42 @@ body {
       color: #555;
     }
     /* Left-align “Insights (The Nexus)” content */
-#insights .text-column {
+#The Nexus .text-column {
   text-align: left;
   margin-left: 0;
 }
 
 /* Right-align the “Subscribe to Monthly Insights” form */
+/* ==== Tidy up the newsletter block ==== */
 .newsletter {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 400px;
-  margin-left: auto;
+  text-align: right;      /* right‐align all text */
+  max-width: 350px;       /* constrain its width so it doesn’t span the whole container */
+  margin-left: auto;      /* push it to the right */
+}
+
+.newsletter h3 {
+  margin-bottom: 10px;    /* space under the heading */
+}
+
+.newsletter form {
+  display: inline-block;  /* shrink‐wrap the form to its contents */
+}
+
+.newsletter input {
+  width: 200px;           /* consistent input width */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.newsletter button {
+  vertical-align: middle; /* keep the button aligned with the input */
+  margin-left: 8px;       /* small gap between input and button */
+}
+
+.newsletter p {
+  margin-top: 8px;        /* space above the privacy note */
+  font-size: 0.9rem;
+  color: #555;
 }
   </style>
   
