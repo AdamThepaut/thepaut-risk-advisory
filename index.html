@@ -228,31 +228,20 @@ body {
 }
 
 /* Services: grid of image-only cards */
-service-cards {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
 }
-
-/* Card wrapper to enforce aspect ratio */
 .service-card {
+  flex: 1 1 calc(25% - 20px); /* four cards per row */
   position: relative;
-  width: 100%;
-  padding-top: 75%;    /* 4:3 aspect ratio */
+  padding-top: 75%;
   overflow: hidden;
   border-radius: 8px;
 }
 
-/* Make the img fill and crop */
-.service-card img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
   </style>
   
 </head>
