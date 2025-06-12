@@ -240,6 +240,23 @@ body {
   text-align: left;
   margin-left: 0;
 }
+
+/* Services: grid of image-only cards */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.service-card {
+  width: 100%;
+  padding-top: 75%;               /* 4:3 ratio box (260px height if 347px wide) */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
   </style>
   
 </head>
@@ -282,30 +299,15 @@ body {
   </section>
   
   <!-- ===== Services Section ===== -->
-  <section id="services" class="container">
-    <div class="text-column">
-      <h2>Services</h2>
-      <p>Each engagement includes a one-on-one session where we:</p>
-      <ul class="service-list">
-        <li class="service-item">
-          <h3>Risk Analysis of Political and Geopolitical factors</h3>
-          <p>Identify key political drivers, elections, policy shifts, social unrest—and assess cross-border threats, regional conflicts, and strategic chokepoints affecting your operations.</p>
-        </li>
-        <li class="service-item">
-          <h3>Scenarios & Mitigation Strategies</h3>
-          <p>Outline scenario probabilities and create mitigation strategies for the three most likely outcomes.</p>
-        </li>
-        <li class="service-item">
-          <h3>Economic Impact Forecasting</h3>
-          <p>Project the economic impact of each scenario and their subsequent mitigation strategies.</p>
-        </li>
-        <li class="service-item">
-          <h3>Strategic Reunion Presence</h3>
-          <p>Participate in strategic meetings with key stakeholders to evaluate project viability and identify potential liabilities.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
+ <section id="services" class="container">
+  <img src="assets/header-services.png" alt="Services Header" class="section-header">
+  <div class="service-cards">
+    <div class="service-card" style="background-image:url('assets/service-1.jpg')"></div>
+    <div class="service-card" style="background-image:url('assets/service-2.jpg')"></div>
+    <div class="service-card" style="background-image:url('assets/service-3.jpg')"></div>
+    <div class="service-card" style="background-image:url('assets/service-4.jpg')"></div>
+  </div>
+</section>
 
     <!-- ===== Contact Section ===== -->
 <!-- ===== Contact / Book a Consultation ===== -->
