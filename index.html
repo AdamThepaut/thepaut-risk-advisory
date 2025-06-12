@@ -227,26 +227,30 @@ body {
   margin-left: 0;
 }
 /*Service cards
-/* Display cards in a row, each at its natural image size */
+/* Services: always one row of cards */
 .service-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+  display: flex;        /* lay out in a row */
+  flex-wrap: nowrap;    /* never wrap to next line */
+  gap: 20px;            /* space between cards */
+  overflow-x: auto;     /* allow horizontal scroll if too wide */
+  padding-bottom: 10px; /* space under cards */
 }
 
-/* Each card simply wraps its image */
+/* Each card just contains an image */
 .service-card {
+  flex: 0 0 auto;       /* size to its content (the image) */
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* Images size themselves to their own dimensions, up to container width */
+/* Image fills its container naturally */
 .service-card img {
-  display: block;      /* removes default inline spacing */
-  max-width: 100%;     /* won’t overflow container */
-  height: auto;        /* preserves image aspect ratio */
+  display: block;       /* remove inline gaps */
+  height: auto;         /* keep aspect ratio */
+  width: auto;          /* natural width */
+  max-width: 300px;     /* cap the width so cards stay reasonable */
 }
+
   </style>
   
 </head>
